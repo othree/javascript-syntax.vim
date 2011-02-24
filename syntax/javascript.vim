@@ -53,7 +53,7 @@ if !exists("javascript_ignore_javaScriptdoc")
 
   syntax region javaScriptDocComment    matchgroup=javaScriptComment start="/\*\*"  end="\*/" contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
   syntax match  javaScriptDocTags       contained "@\(constant\|constructor\|constrructs\|event\|function\|ignore\|inner\|private\|public\|static\)\>"
-  syntax match  javaScriptDocTags       contained "@\(arguments\|lends\|memberOf\|name\|type\)\>" nextgroup=javaScriptDocParam skipwhite
+  syntax match  javaScriptDocTags       contained "@\(arguments\|lends\|memberOf\|name\|type\|link\)\>" nextgroup=javaScriptDocParam skipwhite
   syntax match  javaScriptDocTags       contained "@\(author\|class\|default\|deprecated\|description\|fileOverview\|namespace\|requires\|since\|version\)\>" nextgroup=javaScriptDocDesc skipwhite
   syntax match  javaScriptDocTags       contained "@\(borrows\|exports\)\>" nextgroup=javaScriptDocA skipwhite
   syntax match  javaScriptDocTags       contained "@\(example\)\>"

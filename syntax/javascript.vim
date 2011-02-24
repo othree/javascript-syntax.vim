@@ -51,11 +51,24 @@ if !exists("javascript_ignore_javaScriptdoc")
   "syntax include @javaHtml <sfile>:p:h/html.vim
   "unlet b:current_syntax
 
-  syntax region javaScriptDocComment    matchgroup=javaScriptComment start="/\*\*\s*$"  end="\*/" contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
-  syntax match  javaScriptDocTags       contained "@\(param\|argument\|requires\|exception\|throws\|type\|class\|extends\|see\|link\|member\|module\|method\|title\|namespace\|optional\|default\|base\|file\)\>" nextgroup=javaScriptDocParam,javaScriptDocSeeTag skipwhite
-  syntax match  javaScriptDocTags       contained "@\(beta\|deprecated\|description\|fileoverview\|author\|license\|version\|returns\=\|constructor\|private\|protected\|final\|ignore\|addon\|exec\)\>"
+  syntax region javaScriptDocComment    matchgroup=javaScriptComment start="/\*\*"  end="\*/" contains=javaScriptDocTags,javaScriptCommentTodo,javaScriptCvsTag,@javaScriptHtml,@Spell fold
+  syntax match  javaScriptDocTags       contained "@\(constant\|constructor\|constrructs\|event\|function\|ignore\|inner\|private\|public\|static\)\>"
+  syntax match  javaScriptDocTags       contained "@\(arguments\|lends\|memberOf\|name\|type\)\>" nextgroup=javaScriptDocParam skipwhite
+  syntax match  javaScriptDocTags       contained "@\(author\|class\|default\|deprecated\|description\|fileOverview\|namespace\|requires\|since\|version\)\>" nextgroup=javaScriptDocDesc skipwhite
+  syntax match  javaScriptDocTags       contained "@\(borrows\|exports\)\>" nextgroup=javaScriptDocA skipwhite
+  syntax match  javaScriptDocTags       contained "@\(example\)\>"
+  syntax match  javaScriptDocTags       contained "@\(param\|property\)\>" nextgroup=javaScriptDocNamedParamType skipwhite
+  syntax match  javaScriptDocTags       contained "@\(returns\|throws\)\>" nextgroup=javaScriptDocParamType skipwhite
+  syntax match  javaScriptDocTags       contained "@\(see\)\>" nextgroup=javaScriptDocRef skipwhite
+  syntax match  javaScriptDocNamedParamType      contained "{\w\+}" nextgroup=javaScriptDocParamName skipwhite
+  syntax match  javaScriptDocParamName      contained "\w+" nextgroup=javaScriptDocDesc skipwhite
+  syntax match  javaScriptDocParamType      contained "{\w\+}" nextgroup=javaScriptDocDesc skipwhite
+  syntax match  javaScriptDocA          contained "\%(#\|\w\|\.\|:\|\/\)\+" nextgroup=javaScriptDocAs skipwhite
+  syntax match  javaScriptDocAs         contained "\s*as\s*" nextgroup=javaScriptDocB skipwhite
+  syntax match  javaScriptDocB          contained "\%(#\|\w\|\.\|:\|\/\)\+"
   syntax match  javaScriptDocParam      contained "\%(#\|\w\|\.\|:\|\/\)\+"
-  syntax region javaScriptDocSeeTag     contained matchgroup=javaScriptDocSeeTag start="{" end="}" contains=javaScriptDocTags
+  syntax match  javaScriptDocRef        contained "\%(#\|\w\|\.\|:\|\/\)\+"
+  syntax region javaScriptDocLinkTag     contained matchgroup=javaScriptDocLinkTag start="{" end="}" contains=javaScriptDocTags
 
   syntax case match
 endif   "" JSDoc end
@@ -219,12 +232,18 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   endif
   HiLink javaScriptComment              Comment
   HiLink javaScriptLineComment          Comment
-  HiLink javaScriptDocComment           Comment
+  HiLink javaScriptDocComment           Character
   HiLink javaScriptCommentTodo          Todo
   HiLink javaScriptCvsTag               Function
   HiLink javaScriptDocTags              Special
-  HiLink javaScriptDocSeeTag            Function
+  HiLink javaScriptDocLinkTag           Function
   HiLink javaScriptDocParam             Function
+  HiLink javaScriptDocParamType         Type
+  HiLink javaScriptDocNamedParamType    Type
+  HiLink javaScriptDocRef               Function
+  HiLink javaScriptDocA                 Function
+  HiLink javaScriptDocB                 Function
+  HiLink javaScriptDesc                 Label
   HiLink javaScriptStringS              String
   HiLink javaScriptStringD              String
   HiLink javaScriptRegexpString         String

@@ -1,8 +1,10 @@
 # JavaScript Syntax file for Vim
 
 To improve better support for [jsdoc-toolkit][] and upgrade keyword to current standards.
+Base on [JavaScript syntax : Better JavaScrirpt syntax support][].
 
 [jsdoc-toolkit]:http://code.google.com/p/jsdoc-toolkit/
+[JavaScript syntax : Better JavaScrirpt syntax support]:http://www.vim.org/scripts/script.php?script_id=1491
 
 ## License
 

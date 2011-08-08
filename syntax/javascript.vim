@@ -61,7 +61,7 @@ if !exists("javascript_ignore_javaScriptdoc")
   syntax match  javaScriptDocTags       contained "@\(returns\|throws\)\>" nextgroup=javaScriptDocParamType skipwhite
   syntax match  javaScriptDocTags       contained "@\(see\)\>" nextgroup=javaScriptDocRef skipwhite
   syntax match  javaScriptDocNamedParamType      contained "{\w\+}" nextgroup=javaScriptDocParamName skipwhite
-  syntax match  javaScriptDocParamName      contained "\w+" nextgroup=javaScriptDocDesc skipwhite
+  syntax match  javaScriptDocParamName      contained "\w\+" nextgroup=javaScriptDocDesc skipwhite
   syntax match  javaScriptDocParamType      contained "{\w\+}" nextgroup=javaScriptDocDesc skipwhite
   syntax match  javaScriptDocA          contained "\%(#\|\w\|\.\|:\|\/\)\+" nextgroup=javaScriptDocAs skipwhite
   syntax match  javaScriptDocAs         contained "\s*as\s*" nextgroup=javaScriptDocB skipwhite
@@ -238,6 +238,7 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   HiLink javaScriptDocTags              Special
   HiLink javaScriptDocLinkTag           Function
   HiLink javaScriptDocParam             Function
+  HiLink javaScriptDocParamName         Label
   HiLink javaScriptDocParamType         Type
   HiLink javaScriptDocNamedParamType    Type
   HiLink javaScriptDocRef               Function

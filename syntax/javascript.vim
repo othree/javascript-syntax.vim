@@ -57,8 +57,8 @@ if !exists("javascript_ignore_javaScriptdoc")
   syntax match  javaScriptDocTags       contained "@\(author\|class\|default\|deprecated\|description\|fileOverview\|namespace\|requires\|since\|version\)\>" nextgroup=javaScriptDocDesc skipwhite
   syntax match  javaScriptDocTags       contained "@\(borrows\|exports\)\>" nextgroup=javaScriptDocA skipwhite
   syntax match  javaScriptDocTags       contained "@\(example\)\>"
-  syntax match  javaScriptDocTags       contained "@\(param\|property\)\>" nextgroup=javaScriptDocNamedParamType skipwhite
-  syntax match  javaScriptDocTags       contained "@\(returns\|throws\)\>" nextgroup=javaScriptDocParamType skipwhite
+  syntax match  javaScriptDocTags       contained "@\(param\|property\)\>" nextgroup=javaScriptDocNamedParamType,javaScriptDocParamName skipwhite
+  syntax match  javaScriptDocTags       contained "@\(returns\|throws\)\>" nextgroup=javaScriptDocParamType,javaScriptDocParamName skipwhite
   syntax match  javaScriptDocTags       contained "@\(see\)\>" nextgroup=javaScriptDocRef skipwhite
   syntax match  javaScriptDocNamedParamType      contained "{\w\+}" nextgroup=javaScriptDocParamName skipwhite
   syntax match  javaScriptDocParamName      contained "\w\+" nextgroup=javaScriptDocDesc skipwhite

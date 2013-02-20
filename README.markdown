@@ -1,3 +1,5 @@
+No more update, Please use new one [https://github.com/othree/vim-javascript-syntax](https://github.com/othree/vim-javascript-syntax)
+
 # JavaScript Syntax file for Vim
 
 To improve better support for [jsdoc-toolkit][] and upgrade keyword to current standards.
